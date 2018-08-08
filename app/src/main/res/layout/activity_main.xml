@@ -1,59 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:layout_weight="8">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="8dp"
-            android:padding="5dp"
-            tools:context=".MainActivity">
+            android:padding="20dp">
 
-            <android.support.v7.widget.CardView
+            <EditText
+                android:id="@+id/inputArtist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginBottom="10dp"
-                android:elevation="8dp"
-                app:cardCornerRadius="8dp">
+                android:hint="@string/hint_artist"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="20dp">
+            <EditText
+                android:id="@+id/inputSongName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_song"/>
 
-                    <EditText
-                        android:id="@+id/inputArtist"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/hint_artist"/>
-
-                    <EditText
-                        android:id="@+id/inputSongName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/hint_song"/>
-
-                    <Button
-                        android:id="@+id/buttonSearch"
-                        android:layout_gravity="center"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/btnColor"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:text="@string/text_search"/>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
-                </LinearLayout>
+            <Button
+                android:id="@+id/buttonSearch"
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/btnColor"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/text_search"/>
         </LinearLayout>
-</ScrollView>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colorDev"
+            android:text="@string/developer" />
+
+    </LinearLayout>
+
+</LinearLayout>
