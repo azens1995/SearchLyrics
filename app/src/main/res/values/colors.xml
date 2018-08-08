@@ -5,5 +5,6 @@
     <color name="colorAccent">#7d9e9f</color>
     <color name="colorLyrics">#055d60</color>
     <color name="btnColor">#ffffff</color>
+    <color name="colorError">#970404</color>
 
 </resources>

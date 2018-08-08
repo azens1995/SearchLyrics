@@ -1,6 +1,7 @@
 package com.azens.searchlyrics;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -8,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.azens.searchlyrics.api.LyricsClient;
@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = "";
     EditText inputArtist, inputSongsName;
     Button btnSearch;
-    TextView tvLyrics;
     Call<Lyrics> call;
 
     @Override
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         inputArtist = (EditText) findViewById(R.id.inputArtist);
         inputSongsName = (EditText) findViewById(R.id.inputSongName);
         btnSearch = (Button) findViewById(R.id.buttonSearch);
-        tvLyrics = (TextView) findViewById(R.id.lyrics);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                     loadLyrics();
                 }else {
                     Toast.makeText(MainActivity.this, "No Internet connection...", Toast.LENGTH_SHORT).show();
-                    tvLyrics.setText("No internet connection");
                 }
 
             }
@@ -62,13 +59,15 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "No lyrics found...", Toast.LENGTH_SHORT).show();
                 }else {
                     Lyrics lyrics = response.body();
-                    tvLyrics.append(lyrics.getLyrics());
+                    Intent intent = new Intent(MainActivity.this, LyricsActivity.class);
+                    intent.putExtra("lyrics", lyrics.getLyrics());
+                    MainActivity.this.startActivity(intent);
                 }
             }
 
             @Override
             public void onFailure(Call<Lyrics> call, Throwable t) {
-                tvLyrics.append("Error occurred while getting request!");
+                Toast.makeText(MainActivity.this, "Error occured...", Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }
         });

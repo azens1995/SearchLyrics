@@ -54,14 +54,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_gravity="center">
-                <TextView
-                    android:id="@+id/lyrics"
-                    android:layout_margin="10dp"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorLyrics" />
                 </LinearLayout>
         </LinearLayout>
 </ScrollView>
